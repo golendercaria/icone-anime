@@ -1,0 +1,96 @@
+@mixin transform($what){
+  -webkit-transform: $what;
+      -ms-transform: $what;
+          transform: $what;
+}
+
+@mixin animation ($animation, $duration, $direction, $fillmode) {
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: $fillmode;
+    -webkit-animation-direction: $direction;
+
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: $fillmode;
+    -moz-animation-direction: $direction;
+
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: $fillmode;
+    animation-direction: $direction;
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+//liste animation
+@include keyframes("animation_ico_download_arrow_reverse"){
+	0%{   @include transform(rotateZ(40deg)); }
+	25%{  @include transform(rotateZ(570deg)); }
+	75%{  @include transform(rotateZ(360deg)); }
+	100%{ @include transform(rotateZ(360deg));}
+}
+
+@include keyframes("animation_ico_download_arrow"){
+	0%{   @include transform(rotateZ(0deg)); }
+	75%{  @include transform(rotateZ(570deg)); }
+	100%{ @include transform(rotateZ(540deg)); }
+}
+
+@include keyframes("animation_ico_download_plinth"){
+	0%{   @include transform(translateY(0%)); }
+	10%{  @include transform(translateY(5%)); }
+	90%{  @include transform(translateY(5%)); }
+	100%{ @include transform(translateY(0%)); }
+}
+
+.download{
+	text-align: center;
+	span{
+		display: inline-block;
+		svg{
+			max-width: 80px;
+			transform-origin: 50% 43%;
+			path.first{
+				transform-origin: 50% 43%;
+			}
+			circle{
+				fill:#d92b4b;
+			}	
+		}
+		
+		&.leave{
+			svg{
+				path.first{
+					@include animation(animation_ico_download_arrow_reverse, 0.5s, linear, forwards);
+				}
+				path.second{
+					@include animation(animation_ico_download_plinth, 0.5s, linear, forwards);
+				}
+			}
+		}
+		&.enter{
+			svg{	
+				path.first{
+					@include animation(animation_ico_download_arrow, 0.9s, linear, forwards);
+				}
+				path.second{
+					@include animation(animation_ico_download_plinth, 0.9s, linear, forwards);	
+				}
+			}
+		}
+	}
+}

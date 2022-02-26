@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animated icon</title>
+	<link rel="stylesheet" href="css/build/app.css">
+</head>
+<body>
+
+	<div class="download">	
+		<span>
+			<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				viewBox="0 0 127.5 127.5" style="enable-background:new 0 0 127.5 127.5;" xml:space="preserve" width="127.5px" height="127.5px">
+			<g>
+				<circle cx="63.8" cy="63.8" r="63.1"/>
+				<g>
+					<path class="first" style="fill:#FFFFFF;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;" d="M44.3,53.7l15.4-15.4v41.6c0,2.2,1.5,3.7,3.7,3.7c2.2,0,3.7-1.5,3.7-3.7V38.2l15.4,15.4
+						c0.7,0.7,2.2,0.7,2.9,0.7c0.7,0,2.2,0,2.9-0.7c1.5-1.5,1.5-3.7,0-5.1l-22-22c-1.5-1.5-3.7-1.5-5.1,0l-22,22
+						c-1.5,1.5-1.5,3.7,0,5.1C40.6,55.1,42.8,55.1,44.3,53.7L44.3,53.7z M44.3,53.7"/>
+					<path class="second" style="fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;" d="M94.9,83.5c-1.3,0-2.2,0.7-2.2,1.9v7.5c0,3-3.1,5.6-6.7,5.6H41.5c-3.6,0-6.7-2.6-6.7-5.6v-7.5
+						c0-1.1-0.9-1.9-2.2-1.9c-1.3,0-2.2,0.7-2.2,1.9v7.5c0,5.2,4.9,9.3,11.1,9.3H86c6.2,0,11.1-4.1,11.1-9.3v-7.5
+						C97.1,84.2,96.2,83.5,94.9,83.5L94.9,83.5z M94.9,83.5"/>
+				</g>
+			</g>
+			</svg>
+		</span>
+	</div>
+
+
+	<script>
+		var span = document.querySelectorAll(".download span")[0];
+		span.addEventListener('mouseenter', function(){
+			span.classList.remove('leave');
+			span.classList.add('enter');
+		});
+		span.addEventListener('mouseleave', function(){
+			span.classList.remove('enter');
+			span.classList.add('leave');
+		});
+	</script>
+
+</body>
+</html>
